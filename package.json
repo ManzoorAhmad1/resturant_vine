@@ -1,0 +1,33 @@
+{
+  "name": "verde-nyc-restaurant",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "framer-motion": "^10.18.0",
+    "lucide-react": "^0.344.0",
+    "next": "^14.0.0",
+    "next-themes": "^0.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.0.0",
+    "@next/font": "^14.0.0"
+  }
+}

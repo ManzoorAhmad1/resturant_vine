@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luxurious Fonts */
+@font-face {
+  font-family: 'Cormorant';
+  src: url('/fonts/Cormorant-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  src: url('/fonts/Cormorant-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  src: url('/fonts/Cormorant-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Verde NYC Color Palette */
+:root {
+  /* Vineyard Colors */
+  --vine-green: #2C5530;
+  --terracotta: #964B00;
+  --olive: #808000;
+  --grape-purple: #4B0082;
+  --burgundy: #800020;
+  --gold-leaf: #D4AF37;
+  --cream: #F5F5DC;
+  --charcoal: #36454F;
+  
+  /* Light Mode */
+  --bg-primary: #FAF9F6;
+  --bg-secondary: #F5F1EB;
+  --text-primary: #2C5530;
+  --text-secondary: #5D7B6F;
+  --accent-primary: #964B00;
+  --accent-secondary: #D4AF37;
+  --border-color: #D8C9B5;
+  --card-bg: #FFFFFF;
+}
+
+/* Dark Mode */
+.dark {
+  --bg-primary: #1A1D1A;
+  --bg-secondary: #252925;
+  --text-primary: #E8E6E1;
+  --text-secondary: #B8B4A9;
+  --accent-primary: #C97C5D;
+  --accent-secondary: #E8C39E;
+  --border-color: #3E4A3E;
+  --card-bg: #252925;
+}
+
+/* Base Styles */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-color: var(--border-color);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    @apply antialiased;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--accent-secondary), var(--accent-primary));
+  }
+  
+  /* Selection */
+  ::selection {
+    background-color: var(--accent-primary);
+    color: white;
+  }
+  
+  /* Focus */
+  :focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Components */
+@layer components {
+  /* Luxurious Container */
+  .luxe-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Section Padding */
+  .section-py {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  /* Vineyard Text Styles */
+  .vineyard-heading {
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight;
+    font-family: 'Cormorant', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  .vineyard-subheading {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--accent-primary);
+  }
+  
+  /* Wine Card */
+  .wine-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-500;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+  }
+  
+  .wine-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .wine-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Menu Item */
+  .menu-item {
+    @apply py-6 border-b border-opacity-20 last:border-b-0;
+    border-color: var(--border-color);
+  }
+  
+  /* Button Styles */
+  .btn-vineyard {
+    @apply px-8 py-4 rounded-none font-medium tracking-wider uppercase transition-all duration-300;
+    background: var(--accent-primary);
+    color: white;
+    border: 2px solid var(--accent-primary);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    font-size: 14px;
+  }
+  
+  .btn-vineyard:hover {
+    background: transparent;
+    color: var(--accent-primary);
+  }
+  
+  .btn-outline-vineyard {
+    @apply px-8 py-4 rounded-none font-medium tracking-wider uppercase transition-all duration-300;
+    background: transparent;
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    font-size: 14px;
+  }
+  
+  .btn-outline-vineyard:hover {
+    background: var(--accent-primary);
+    color: white;
+  }
+  
+  /* Navigation */
+  .nav-link {
+    @apply relative px-4 py-2 text-sm uppercase tracking-widest transition-colors duration-300;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+    background: var(--accent-primary);
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  /* Image Overlay */
+  .vineyard-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(44, 85, 48, 0.2) 0%,
+      rgba(44, 85, 48, 0.4) 50%,
+      rgba(44, 85, 48, 0.8) 100%
+    );
+  }
+  
+  .dark .vineyard-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 29, 26, 0.2) 0%,
+      rgba(26, 29, 26, 0.4) 50%,
+      rgba(26, 29, 26, 0.8) 100%
+    );
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  /* Text Gradients */
+  .text-gradient-vine {
+    background: linear-gradient(135deg, var(--vine-green), var(--olive));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-terracotta {
+    background: linear-gradient(135deg, var(--terracotta), var(--burgundy));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Background Patterns */
+  .bg-vine-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232c5530' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  /* Glass Morphism */
+  .glass-morphism {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .dark .glass-morphism {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Text Shadow */
+  .text-shadow-vine {
+    text-shadow: 2px 2px 4px rgba(44, 85, 48, 0.3);
+  }
+  
+  .dark .text-shadow-vine {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
