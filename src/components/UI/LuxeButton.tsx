@@ -5,16 +5,22 @@ import { motion, MotionProps } from 'framer-motion'
 import { LucideIcon } from 'lucide-react'
 import { cn } from '../lib/utils'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, MotionProps {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'vineyard'
-  size?: 'xs' | 'sm' | 'default' | 'lg' | 'xl' | 'icon'
-  isLoading?: boolean
-  leftIcon?: LucideIcon
-  rightIcon?: LucideIcon
-  fullWidth?: boolean
-  loadingText?: string
-  animation?: 'scale' | 'rotate' | 'float' | 'pulse' | 'none'
-  iconOnly?: boolean
+type ButtonSize = 'xs' | 'sm' | 'default' | 'lg' | 'xl' | 'icon';
+type ButtonVariant = 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'vineyard';
+type ButtonAnimation = 'scale' | 'rotate' | 'float' | 'pulse' | 'none';
+
+interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof MotionProps> {
+  className?: string;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  isLoading?: boolean;
+  leftIcon?: LucideIcon;
+  rightIcon?: LucideIcon;
+  fullWidth?: boolean;
+  loadingText?: string;
+  animation?: ButtonAnimation;
+  iconOnly?: boolean;
+  children?: React.ReactNode;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -91,7 +97,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           transition: {
             duration: 2,
             repeat: Infinity,
-            repeatType: 'reverse'
+            repeatType: "reverse" as "reverse"
           }
         }
       },
@@ -144,7 +150,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         disabled={disabled || isLoading}
         {...animations[animation]}
-        {...props}
+        {...(props as Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof MotionProps>)}
       >
         {buttonContent}
       </motion.button>

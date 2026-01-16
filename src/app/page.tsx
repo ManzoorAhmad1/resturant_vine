@@ -122,7 +122,7 @@ export default function Home() {
             </p>
           </motion.div>
           
-          <WineCollection limit={4} />
+          <WineCollection />
         </div>
       </section>
       
@@ -188,7 +188,7 @@ export default function Home() {
       {/* Gallery Preview */}
       <section className="section-py">
         <div className="luxe-container">
-          <VineyardGallery limit={6} />
+          <VineyardGallery  />
         </div>
       </section>
       
