@@ -1,9 +1,9 @@
 "use client";
 
+import { Button } from "@/components/UI/LuxeButton";
 import { motion } from "framer-motion";
 import { Home, Search, Shield, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { Button } from "rizzui";
 
 export default function NotFound() {
   return (
